@@ -7,7 +7,6 @@ import BuildFloatingPanel from "@/components/BuildFloatingPanel";
 import CategoryTabs from "@/components/CategoryTabs";
 import { useBuildStore } from "@/lib/store";
 import type { AffiliateItem, AffiliateCategory } from "@/lib/affiliate-types";
-import { toChipset } from "@/lib/type-guards";
 
 type Category = AffiliateCategory; // "cpu" | "gpu" | "ram" | "mb" | "psu"
 
@@ -71,11 +70,10 @@ export default function CatalogPage() {
         speed: item.speed ?? 6000,
       });
     } else if (item.category === "mb") {
-      const chipset = toChipset(item.model) ?? "B650";
       setPart("mainboard", {
         id: item.id,
         socket: (item.socket as any) || "AM5",
-        chipset,
+        chipset: item.model || "B650",
         memoryType: (item.memoryType as any) || "DDR5",
         memoryMaxSpeed: item.speed ?? 6000,
         formFactor: "ATX",
