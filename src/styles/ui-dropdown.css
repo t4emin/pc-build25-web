@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@layer components {
+  .ui-dd { @apply relative w-full; }
+
+  .ui-dd__label { @apply mb-1 block text-sm font-medium text-gray-800; }
+
+  /* ปุ่มหลัก */
+  .ui-dd__button {
+    @apply flex w-full items-center justify-between gap-3 rounded-xl border bg-white px-3 py-2
+           text-[16px] leading-6 text-gray-900 shadow-sm transition
+           border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-200;
+  }
+  .ui-dd__button.is-open { @apply border-blue-500; }
+  .ui-dd__button.is-disabled { @apply cursor-not-allowed bg-gray-100 text-gray-500 border-gray-200; }
+
+  .ui-dd__value.text-placeholder { @apply text-gray-500; }
+  .ui-dd__value.text-accent { @apply text-pink-500; } /* เหมือนตัวอย่าง “ทุกประเภท” สีชมพู */
+
+  .ui-dd__chevron {
+    @apply h-5 w-5 opacity-80 transition;
+    background: no-repeat center / contain
+      url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  }
+  .ui-dd__button.is-open .ui-dd__chevron {
+    transform: rotate(180deg);
+  }
+
+  /* เมนูที่ "ลอย" ออกจากปุ่ม (พื้นหลังขาว, เงา, โค้ง) */
+  .ui-dd__menu {
+    @apply absolute z-50 mt-2 w-full overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-black/5;
+  }
+
+  .ui-dd__item {
+    @apply cursor-pointer px-4 py-3 text-[16px] text-gray-900 transition;
+  }
+  .ui-dd__item:hover,
+  .ui-dd__item.is-active { @apply bg-pink-50; }        /* แถบไฮไลต์แบบในภาพ */
+  .ui-dd__item.is-selected { @apply font-semibold; }    /* ตัวที่เลือกอยู่ */
+  .ui-dd__item.is-disabled { @apply cursor-not-allowed text-gray-400; }
+
+  /* โหมดมืด */
+  @media (prefers-color-scheme: dark) {
+    .ui-dd__button { @apply bg-neutral-900 text-gray-100 border-neutral-700 hover:border-neutral-600; }
+    .ui-dd__menu { @apply bg-neutral-900 ring-white/10; }
+    .ui-dd__item { @apply text-gray-100; }
+    .ui-dd__item:hover,
+    .ui-dd__item.is-active { @apply bg-white/10; }
+    .ui-dd__value.text-accent { @apply text-pink-400; }
+    .ui-dd__chevron {
+      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="%23bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    }
+  }
+}

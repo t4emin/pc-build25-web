@@ -1,0 +1,21 @@
+[
+  {
+    "id": "7b7762c4-507c-4fcf-bc3a-55bd48613948",
+    "title": "Corsair RM750e 750W 80+ Gold (Affiliate)",
+    "url": "https://s.shopee.co.th/40XfVdW8Is",
+    "category": "psu",
+    "brand": "Corsair",
+    "model": "RM750e",
+    "price": 2990
+  },
+  {
+    "id": "33205204-b429-4063-a82a-3b833b519426",
+    "title": "ASUS RTX 4070 Super Dual 12GB",
+    "url": "https://s.shopee.co.th/LeN9o9w7a",
+    "category": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4070 Super Dual",
+    "price": 19900,
+    "tgp": 220
+  }
+]
